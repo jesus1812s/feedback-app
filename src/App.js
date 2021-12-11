@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import Header from './components/Header';
-import FeedbackItem from './components/FeedbackItem';
+import FeedbackData from './data/FeedbackData';
+import FeedbackList from './components/FeedbackList';
 
 function App() {
+  const [feedback, setFeedback] = useState(FeedbackData);
+
   const comments = [
     { id: 1, text: 'Love this!' },
     { id: 2, text: 'Wololoo!' },
@@ -18,7 +22,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <FeedbackItem />
+        <FeedbackList feedback={feedback} />
         <div className="comments">
           <h3>Comments ({comments.length})</h3>
           <ul>
