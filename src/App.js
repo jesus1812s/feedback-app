@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import FeedbackItem from './components/FeedbackItem';
 
 function App() {
   const comments = [
@@ -17,7 +18,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <h1> Hello from the other side</h1>
+        <FeedbackItem />
         <div className="comments">
           <h3>Comments ({comments.length})</h3>
           <ul>
