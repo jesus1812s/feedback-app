@@ -6,11 +6,11 @@ import FeedbackList from './components/FeedbackList';
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
 
-  const comments = [
-    { id: 1, text: 'Love this!' },
-    { id: 2, text: 'Wololoo!' },
-    { id: 3, text: 'Make this world!' },
-  ];
+  const deleteFeedback = (id) => {
+    if (window.confirm('Are you sure you want to delete this feedback?')) {
+      setFeedback(feedback.filter((item) => item.id !== id));
+    }
+  };
 
   const loading = false;
 
@@ -22,15 +22,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <FeedbackList feedback={feedback} />
-        <div className="comments">
-          <h3>Comments ({comments.length})</h3>
-          <ul>
-            {comments.map((comment, index) => (
-              <li key={index}> {comment.text}</li>
-            ))}
-          </ul>
-        </div>
+        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>
     </>
   );
